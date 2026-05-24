@@ -1,14 +1,14 @@
 def insertion_sort(arr):
     # Traverse from the second element
     for i in range(1, len(arr)):
-        key = arr[i-1]
-        j = i - 1  # Correct index for insertion sort
+        key = arr[i]  # Correct key selection
+        j = i - 1  # Index of element before key
 
         # Move elements of arr[0..i-1], that are greater than key,
         # to one position ahead of their current position
         while j >= 0 and arr[j] > key:
             arr[j + 1] = arr[j]
-            j += 1
+            j -= 1  # Move left
 
         arr[j + 1] = key
 
