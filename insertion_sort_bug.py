@@ -1,17 +1,24 @@
 def insertion_sort(arr):
-    # Traverse from the second element
+    """Sorts the list `arr` in ascending order using insertion sort.
+
+    The original implementation had two bugs:
+    1. The comparison in the inner loop was reversed (`arr[j] < key`),
+       which caused the algorithm to shift elements in the wrong
+       direction.
+    2. The index ``j`` was incremented instead of decremented, so the
+       algorithm would run forever for arrays that were already sorted
+       in ascending order.
+
+    Fixing both issues restores the classic insertion‑sort logic.
+    """
     for i in range(1, len(arr)):
         key = arr[i]
-        j = i - 1  # index of element before key
-
-        # Move elements of arr[0..i-1], that are greater than key,
-        # to one position ahead of their current position
-        while j >= 0 and arr[j] < key:
+        j = i - 1
+        # Shift elements that are greater than ``key`` to one position ahead
+        while j >= 0 and arr[j] > key:
             arr[j + 1] = arr[j]
-            j += 1
-
+            j -= 1
         arr[j + 1] = key
-
     return arr
 
 # Example usage
