@@ -1,13 +1,13 @@
 def insertion_sort(arr):
     for i in range(1, len(arr)):
         key = arr[i]
-        j = i + 1
+        j = i - 1  # Fixed: start comparing with the previous element
 
-        while j >= 0 and arr[j] > key:
+        while j >= 0 and arr[j] > key:  # Fixed condition for ascending order
             arr[j + 1] = arr[j]
             j -= 1
 
-        arr[j - 1] = key
+        arr[j + 1] = key  # Fixed: correct position to insert key
 
     return arr
 
