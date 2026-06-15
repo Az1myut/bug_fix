@@ -1,4 +1,8 @@
 def insertion_sort(arr):
+    # Handle edge cases for empty or single-element arrays
+    if len(arr) <= 1:
+        return arr
+    
     for i in range(1, len(arr)):
         key = arr[i]
         j = i - 1
